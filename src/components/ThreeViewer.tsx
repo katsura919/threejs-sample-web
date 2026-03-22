@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -15,7 +16,8 @@ export default function ThreeViewer() {
   const modelRef  = useRef<THREE.Group | null>(null);
   const mixerRef  = useRef<THREE.AnimationMixer | null>(null);
   const timerRef  = useRef(new THREE.Timer());
-  const frameRef  = useRef<number>(0);
+  const frameRef    = useRef<number>(0);
+  const controlsRef = useRef<OrbitControls | null>(null);
   const [loaded, setLoaded] = useState(false);
 
   // ── Init renderer / scene / camera ────────────────────────────
@@ -34,6 +36,15 @@ export default function ThreeViewer() {
     const scene  = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, W / H, 0.01, 100);
     camera.position.set(0, 0.1, 3.8);
+
+    // Orbit controls — drag to rotate, scroll to zoom
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping  = true;
+    controls.dampingFactor  = 0.06;
+    controls.enablePan      = false;
+    controls.minDistance    = 1.5;
+    controls.maxDistance    = 9;
+    controlsRef.current = controls;
 
     // Lighting
     scene.add(new THREE.AmbientLight(0xffffff, 0.35));
@@ -84,6 +95,7 @@ export default function ThreeViewer() {
       frameRef.current = requestAnimationFrame(tick);
       timer.update(ts);
       mixerRef.current?.update(timer.getDelta());
+      controls.update();
       renderer.render(scene, camera);
     };
     frameRef.current = requestAnimationFrame(tick);
@@ -99,6 +111,7 @@ export default function ThreeViewer() {
     return () => {
       window.removeEventListener('resize', onResize);
       cancelAnimationFrame(frameRef.current);
+      controls.dispose();
       renderer.dispose();
       if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
     };
@@ -151,7 +164,8 @@ export default function ThreeViewer() {
         position: 'fixed',
         inset: 0,
         zIndex: 0,
-        pointerEvents: 'none',
+        pointerEvents: 'auto',
+        cursor: 'grab',
       }}
     />
   );

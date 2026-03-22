@@ -63,8 +63,8 @@ export default function HeroSection() {
       position: 'relative',
       width: '100%',
       height: '100vh',
-      overflow: 'hidden',
       background: 'transparent',
+      pointerEvents: 'none',
     }}>
       {/* ── Edge vignette ── */}
       <div style={{
