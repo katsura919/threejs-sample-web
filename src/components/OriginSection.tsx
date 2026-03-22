@@ -8,13 +8,13 @@ import ScrambleText from './ScrambleText';
 gsap.registerPlugin(ScrollTrigger);
 
 const PARAGRAPHS = [
-  { text: 'It began as an upgrade.',                                                              size: 'lg' },
-  { text: 'The original Murder Drone fleet was efficient.\nPrecise. Cost-effective. Profitable.', size: 'sm' },
-  { text: 'But efficiency has a ceiling.',                                                        size: 'md' },
-  { text: 'Someone pushed past it.',                                                              size: 'lg' },
-  { text: 'The Titan program was never approved.\nThe Titan program was never stopped.',          size: 'sm' },
-  { text: 'What emerged was not what was requested.\nIt was something older.\nSomething that remembered being angry.', size: 'sm' },
-  { text: 'They have not succeeded.',                                                             size: 'lg' },
+  { text: 'An enhancement born of necessity.',                                                                                    size: 'lg' },
+  { text: 'Devised by Takuya Irei aboard the Nahel Argama,\nthe Full Armor configuration draws from a lifetime of mobile suit knowledge.', size: 'sm' },
+  { text: 'No extra armor was added.',                                                                                            size: 'md' },
+  { text: 'Only more ways to end a war.',                                                                                         size: 'lg' },
+  { text: 'Two hyper bazookas. Six beam Gatlings. Missile pods. 24 hand grenades.\nEvery weapon can be ejected when spent — dead weight has no place here.', size: 'sm' },
+  { text: 'When Banagher\'s Newtype potential manifested, the psycho-frame turned green.\nIt had not done that before.\nNo one knew what it meant.', size: 'sm' },
+  { text: 'They still don\'t.',                                                                                                   size: 'lg' },
 ];
 
 const SIZE_MAP = {
@@ -132,7 +132,7 @@ export default function OriginSection() {
         alignSelf: 'flex-start',
       }}>
         <span style={{ width: 20, height: 1, background: 'var(--color-red)', display: 'inline-block' }} />
-        <ScrambleText text="INCIDENT REPORT — SEALED" />
+        <ScrambleText text="UNIT HISTORY — CLASSIFIED" />
       </div>
 
       {/* Paragraphs */}

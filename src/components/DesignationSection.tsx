@@ -8,11 +8,11 @@ import ScrambleText from './ScrambleText';
 gsap.registerPlugin(ScrollTrigger);
 
 const STATS = [
-  { key: 'CLASS',       value: 'Disassembly / Apex Variant'                          },
-  { key: 'DESIGNATION', value: 'TMD-TITAN-01'                                        },
-  { key: 'STATUS',      value: 'ACTIVE — UNSANCTIONED', valueColor: 'var(--color-warning)' },
-  { key: 'THREAT',      value: 'EXTINCTION CLASS',      valueColor: 'var(--color-red)'     },
-  { key: 'LAST SEEN',   value: '[REDACTED]',            valueColor: 'var(--color-muted)'   },
+  { key: 'DESIGNATION', value: 'RX-0[N] FULL ARMOR UNICORN'                              },
+  { key: 'SERIES',      value: 'Mobile Suit Gundam Unicorn'                               },
+  { key: 'PILOT',       value: 'BANAGHER LINKS',         valueColor: 'var(--color-warning)' },
+  { key: 'NT-D STATUS', value: 'RESONANT — FRAME GREEN', valueColor: 'var(--color-red)'     },
+  { key: 'ORIGIN',      value: 'NAHEL ARGAMA / ANAHEIM', valueColor: 'var(--color-muted)'   },
 ];
 
 export default function DesignationSection() {
@@ -101,12 +101,12 @@ export default function DesignationSection() {
             letterSpacing: '0.2em', color: 'var(--color-muted)',
           }}>
             <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--color-red)' }} />
-            <ScrambleText text="UNIT DESIGNATION / TMD-01" />
+            <ScrambleText text="UNIT DESIGNATION / RX-0[N]" />
           </div>
 
           {/* Headline */}
           <div ref={headlineRef} style={{ display: 'flex', flexDirection: 'column' }}>
-            {['Built from the wreckage', 'of obedience.'].map((line, i) => (
+            {['Born to transcend', 'its own limits.'].map((line, i) => (
               <div key={i} style={{ overflow: 'hidden' }}>
                 <div className="line" style={{
                   fontFamily: 'var(--font-display)',
@@ -128,8 +128,8 @@ export default function DesignationSection() {
             lineHeight: 1.8,
             maxWidth: '38ch',
           }}>
-            Not a weapon of war.<br />
-            <span style={{ color: 'var(--color-white)' }}>The conclusion of one.</span>
+            Devised by Takuya Irei aboard the Nahel Argama.<br />
+            <span style={{ color: 'var(--color-white)' }}>A full arsenal. Zero redundant armor.</span>
           </p>
         </div>
 
@@ -148,7 +148,7 @@ export default function DesignationSection() {
             borderBottom: '1px solid rgba(255,255,255,0.06)',
           }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.22em', color: 'var(--color-red)' }}>
-              <ScrambleText text="CLASSIFIED READOUT" delay={200} />
+              <ScrambleText text="UNIT READOUT / FA UNICORN" delay={200} />
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', letterSpacing: '0.12em', color: 'var(--color-muted)' }}>
               ██████-████

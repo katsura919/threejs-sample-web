@@ -9,24 +9,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const CALLOUTS = [
   {
-    id:    'OPTICAL ARRAY',
+    id:    'BEAM MAGNUM',
     index: '01',
-    body:  'Thermal. Infrared. Absolute.\nTracks 217 targets simultaneously.',
+    body:  'One shot equals four standard beam rifles.\nFive rounds per E-pac. Reloads from rear skirt armor.',
   },
   {
-    id:    'JAW ASSEMBLY',
+    id:    'I-FIELD SHIELDS',
     index: '02',
-    body:  'Reinforced tungsten. Pressure: 4,200 PSI.\nYou will not pull away.',
+    body:  'Three four-petal shields. Near 360° of I-field coverage.\nDeflects mega-particle beams. Guided by psycho-frame.',
   },
   {
-    id:    'CRANIAL CORE',
+    id:    'BEAM GATLING GUN',
     index: '03',
-    body:  'No emotion subroutines. No hesitation loops.\nPure execution logic.',
+    body:  'Six total — paired on each shield underside.\nOriginally Neo Zeon armament. Adapted via Anaheim standard.',
   },
   {
-    id:    'OUTER CASING',
+    id:    'NT-D SYSTEM',
     index: '04',
-    body:  'Recovered from an unclassified impact event.\nMaterial unknown.',
+    body:  'Newtype-Destroyer protocol. Hijacks enemy psycommu weapons.\nPsycho-frame resonates green at full Newtype output.',
   },
 ];
 
@@ -96,12 +96,12 @@ export default function AnatomySection() {
         marginBottom: '2rem',
       }}>
         <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--color-red)' }} />
-        <ScrambleText text="UNIT ANATOMY / THREAT ASSESSMENT" />
+        <ScrambleText text="UNIT ANATOMY / WEAPONS ARRAY" />
       </div>
 
       {/* Headline */}
       <div ref={headlineRef} style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
-        {['Engineered for one purpose.', 'It shows.'].map((line, i) => (
+        {['Armed for every', 'scenario.'].map((line, i) => (
           <div key={i} style={{ overflow: 'hidden' }}>
             <div className="line" style={{
               fontFamily: 'var(--font-display)',

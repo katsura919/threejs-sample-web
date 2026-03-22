@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const TITLE_LINES = [
-  { word: 'TITAN',  color: 'var(--color-white)' },
-  { word: 'MURDER', color: 'var(--color-red)'   },
-  { word: 'DRONE',  color: 'var(--color-white)' },
+  { word: 'FULL',   color: 'var(--color-white)' },
+  { word: 'ARMOR',  color: 'var(--color-red)'   },
+  { word: 'UNICORN', color: 'var(--color-white)' },
 ];
 
 export default function HeroSection() {
@@ -108,7 +108,7 @@ export default function HeroSection() {
               flexShrink: 0,
               animation: 'pulse 2s ease-in-out infinite',
             }} />
-            CLASSIFIED — CLEARANCE LEVEL OMEGA
+            CLASSIFIED — NT-D SYSTEM ACTIVE
           </div>
 
           {/* Unit ID */}
@@ -120,9 +120,9 @@ export default function HeroSection() {
             textAlign: 'right',
             lineHeight: 1.8,
           }}>
-            <div style={{ color: 'var(--color-white)' }}>UNIT / TMD-TITAN-01</div>
-            <div>STATUS — <span style={{ color: 'var(--color-warning)' }}>ACTIVE · UNSANCTIONED</span></div>
-            <div>THREAT — <span style={{ color: 'var(--color-red)' }}>EXTINCTION CLASS</span></div>
+            <div style={{ color: 'var(--color-white)' }}>UNIT / RX-0 FA-UNICORN</div>
+            <div>PILOT — <span style={{ color: 'var(--color-warning)' }}>BANAGHER LINKS</span></div>
+            <div>PSYCHOFRAME — <span style={{ color: 'var(--color-red)' }}>RESONANT · GREEN</span></div>
           </div>
         </div>
 
@@ -171,33 +171,15 @@ export default function HeroSection() {
             letterSpacing: '0.04em',
             lineHeight: 1.9,
           }}>
-            It was not built to serve.
+            It does not carry extra armor.
             <br />
             <span style={{ color: 'var(--color-white)', fontStyle: 'italic' }}>
-              It was built to end.
+              Only more ways to end a war.
             </span>
           </p>
         </div>
 
-        {/* BOTTOM CENTER — Scroll indicator */}
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <div ref={scrollRef} style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '0.4rem',
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.6rem',
-            letterSpacing: '0.3em',
-            color: 'var(--color-muted)',
-          }}>
-            <span>SCROLL</span>
-            <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
-              <rect x="1" y="1" width="10" height="18" rx="5" stroke="currentColor" strokeWidth="1.2" />
-              <rect x="4.5" y="4" width="3" height="4" rx="1.5" fill="currentColor" />
-            </svg>
-          </div>
-        </div>
+
 
       </div>
 
