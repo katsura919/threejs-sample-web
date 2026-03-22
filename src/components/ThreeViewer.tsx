@@ -35,7 +35,7 @@ export default function ThreeViewer() {
 
     const scene  = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, W / H, 0.01, 100);
-    camera.position.set(0, 0.2, 2.1);
+    camera.position.set(0, 0.2, 1.8);
 
     // Orbit controls — drag to rotate only
     const controls = new OrbitControls(camera, renderer.domElement);
