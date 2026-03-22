@@ -41,6 +41,7 @@ export default function AnatomySection() {
     const ctx = gsap.context(() => {
       const baseTrigger = { trigger: sectionRef.current, start: 'top 70%' };
 
+      // Headline: clip-up + blur + skew
       const lines = headlineRef.current?.querySelectorAll('.line');
       if (lines) {
         gsap.from(lines, {

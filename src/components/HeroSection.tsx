@@ -2,11 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MorphingText } from '@/components/ui/morphing-text';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MORPH_TEXTS = ['FULL ARMOR', 'UNICORN', 'DESTROY MODE', 'RX-0[N]'];
 
 export default function HeroSection() {
+  const sectionRef  = useRef<HTMLElement>(null);
   const badgeRef    = useRef<HTMLDivElement>(null);
   const unitRef     = useRef<HTMLDivElement>(null);
   const titleRef    = useRef<HTMLDivElement>(null);
@@ -45,6 +49,24 @@ export default function HeroSection() {
         duration: 1,
         ease: 'sine.inOut',
       }, 2.2);
+
+      // ── Outro: scrub elements out as section scrolls away ──
+      const outro = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'bottom bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      });
+
+      outro
+        .to(badgeRef.current,    { x: -40, opacity: 0, filter: 'blur(6px)', ease: 'power2.in' }, 0)
+        .to(unitRef.current,     { x:  40, opacity: 0, filter: 'blur(6px)', ease: 'power2.in' }, 0)
+        .to(titleRef.current,    { y: -30, opacity: 0, filter: 'blur(14px)', ease: 'power2.in' }, 0.05)
+        .to(dividerRef.current,  { scaleX: 0, transformOrigin: 'left center', ease: 'power2.in' }, 0.1)
+        .to(subtitleRef.current, { y: -16, opacity: 0, filter: 'blur(6px)', ease: 'power2.in' }, 0.1)
+        .to(scrollRef.current,   { opacity: 0, ease: 'power2.in' }, 0);
     });
 
     return () => ctx.revert();
@@ -52,6 +74,7 @@ export default function HeroSection() {
 
   return (
     <section
+      ref={sectionRef}
       style={{
         position: "relative",
         width: "100%",
@@ -66,10 +89,7 @@ export default function HeroSection() {
           position: "absolute",
           inset: 0,
           pointerEvents: "none",
-          background: `
-          radial-gradient(ellipse 80% 80% at 60% 50%, transparent 30%, rgba(10,10,15,0.65) 100%),
-          linear-gradient(to right, rgba(10,10,15,0.75) 0%, transparent 45%)
-        `,
+
         }}
       />
 
@@ -168,7 +188,7 @@ export default function HeroSection() {
             ref={dividerRef}
             style={{
               height: 1,
-              background: `linear-gradient(to right, var(--color-red), transparent)`,
+              background: ` transparent)`,
               marginTop: "1.5rem",
               marginBottom: "1.25rem",
               width: "80%",
@@ -187,8 +207,7 @@ export default function HeroSection() {
             }}
           >
             <span style={{ color: "var(--color-white)", fontStyle: "italic" }}>
-              The RX-0 Full Armor Unicorn Gundam (aka Full Armor Unicorn,
-              Unicorn) is a variant of the RX-0 Unicorn Gundam and is piloted by
+              The RX-0 Full Armor Unicorn Gundam is a variant of the <br></br> RX-0 Unicorn Gundam and is piloted by
               Banagher Links.
             </span>
           </p>

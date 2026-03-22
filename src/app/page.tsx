@@ -4,6 +4,10 @@ import HeroSection from '@/components/HeroSection';
 import DesignationSection from '@/components/DesignationSection';
 import AnatomySection from '@/components/AnatomySection';
 import OriginSection from '@/components/OriginSection';
+import DestroyModeSection from '@/components/DestroyModeSection';
+import CombatLogSection from '@/components/CombatLogSection';
+import LegacySection from '@/components/LegacySection';
+import FooterSection from '@/components/FooterSection';
 import { Ripple } from '@/components/ui/ripple';
 
 const ThreeViewer = dynamic(() => import('@/components/ThreeViewer'), { ssr: false });
@@ -25,6 +29,9 @@ export default function Home() {
         <DesignationSection />
         <AnatomySection />
         <OriginSection />
+        <DestroyModeSection />
+        <CombatLogSection />
+        <FooterSection />
       </div>
     </main>
   );
