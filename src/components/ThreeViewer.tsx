@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MODEL_PATH = '/assets/titan_murder_drone_head.glb';
+const MODEL_PATH = '/assets/gundam.glb';
 
 export default function ThreeViewer() {
   const mountRef  = useRef<HTMLDivElement>(null);
@@ -35,13 +35,14 @@ export default function ThreeViewer() {
 
     const scene  = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, W / H, 0.01, 100);
-    camera.position.set(0, 0.1, 3.8);
+    camera.position.set(0, 0.2, 2.1);
 
-    // Orbit controls — drag to rotate, scroll to zoom
+    // Orbit controls — drag to rotate only
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping  = true;
     controls.dampingFactor  = 0.06;
     controls.enablePan      = false;
+    controls.enableZoom     = false;
     controls.minDistance    = 1.5;
     controls.maxDistance    = 9;
     controlsRef.current = controls;
@@ -74,6 +75,7 @@ export default function ThreeViewer() {
 
       model.scale.setScalar(scale);
       model.position.sub(center.multiplyScalar(scale));
+      model.rotation.y = Math.PI;
       // Sit slightly right of center at rest
       model.position.x += 0.4;
 
