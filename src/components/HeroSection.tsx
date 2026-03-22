@@ -2,9 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import dynamic from 'next/dynamic';
-
-const ThreeViewer = dynamic(() => import('./ThreeViewer'), { ssr: false });
 
 const TITLE_LINES = [
   { word: 'TITAN',  color: 'var(--color-white)' },
@@ -67,13 +64,8 @@ export default function HeroSection() {
       width: '100%',
       height: '100vh',
       overflow: 'hidden',
-      background: 'var(--color-void)',
+      background: 'transparent',
     }}>
-      {/* ── 3D Model ── */}
-      <div style={{ position: 'absolute', inset: 0 }}>
-        <ThreeViewer />
-      </div>
-
       {/* ── Edge vignette ── */}
       <div style={{
         position: 'absolute',
